@@ -3,3 +3,4 @@ node_modules
 dist
 **/*.css
 npm-debug.log
+.idea/
