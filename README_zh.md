@@ -2,28 +2,28 @@
 
 [![CDNJS](https://img.shields.io/cdnjs/v/parallax.svg)](https://cdnjs.com/libraries/parallax)
 
-Parallax Engine that reacts to the orientation of a smart device. Where no gyroscope or motion detection hardware is available, the position of the cursor is used instead.
+Parallax 引擎能对只能设备的方向作出反应。 如果设备没有陀螺仪或不支持手势， 将会使用鼠标的位置数据作为替代。
 
-Check out the **[demo](http://wagerfield.github.com/parallax/)** to see it in action!
+查看 **[demo](http://wagerfield.github.com/parallax/)** 看看它是怎么工作的！
 
 # Table of Contents
 
-- [1. 开始使用](#1-getting-started)
-  - [1.1 安装](#11-installation)
-  - [1.2 准备工作](#12-preparations)
-  - [1.3 使用 Parallax](#13-run-parallax)
-- [2. 配置](#2-configuration)
-  - [2.1 编程式 vs 声明式](#21-programmatic-vs-declarative)
-  - [2.2 配置选项](#22-configuration-options)
-- [3. 方法](#3-methods)
-- [4. 参与开发](#4-development)
-  - [4.1 克隆项目](#41-running-the-project)
+- [1. 开始使用](#1-开始使用)
+  - [1.1 安装](#11-安装)
+  - [1.2 准备工作](#12-准备工作)
+  - [1.3 使用 Parallax](#13-使用-parallax)
+- [2. 配置](#2-配置)
+  - [2.1 编程式 vs 声明式](#21-编程式-vs-声明式)
+  - [2.2 配置选项](#22-配置-选项)
+- [3. 方法](#3-方法)
+- [4. 参与开发](#4-参与开发)
+  - [4.1 克隆项目](#41-克隆项目)
   - [4.2 Opening an Issue](#42-opening-an-issue)
   - [4.3 Known Issues](#43-known-issues)
 - [5. FAQ](#5-faq)
-- [6. 资料](#6-information)
+- [6. 资料](#6-资料)
    - [6.1 License](#61-license)
-   - [6.2 贡献者](#62-authors)
+   - [6.2 贡献者](#62-贡献者)
 
 # 1. 开始使用
 
@@ -52,20 +52,20 @@ Check out the **[demo](http://wagerfield.github.com/parallax/)** to see it in ac
 
 You will then find the source code in `node_modules/parallax-js/src/parallax.js` and the browserified, babelified, uglified, production-ready version in `node_modules/parallax-js/dist/parallax.min.js`
 
-## 1.2 Preparations
+## 1.2 准备工作
 
-### Include the Script
+### 添加 Script
 
-If you use the compiled version, either downloaded from the releases page, or copied from the `dist` folder, include the script like any other Javascript library:  
+如果你使用编译后的版本，无论是从发布页下载， 还是从 `dist` 文件夹复制， 像添加其他Javascript库一样加入下面的`script`代码  
 `<script src="path/to/parallax.js"></script>`
 
-Of course, when you've installed via npm, and use browserify/babel, you can also simply do:  
-`import Parallax from 'parallax-js'` or  
+当然，如果你使用npm来安装， 并且使用了 browserify/babel，你只需简单的加入下面的代码：  
+`import Parallax from 'parallax-js'` 或者  
 `const Parallax = require('parallax-js')`
 
-### Create your HTML elements
+### 生成你的 HTML 元素
 
-Each Parallax.js instance needs a container element, the scene. You're free to identify it by any means you want, but for now, let's use an ID:
+每个 Parallax.js 实例 需要一个 container 元素， 也就是 scene。你可以自由定义它你喜欢的名字，但现在，让我们先使用这个 ID:
 
 ```html
 <div id="scene">
