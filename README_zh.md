@@ -143,6 +143,7 @@ HTML属性: **data-relative-input**
 默认值: *false*
 
 将鼠标的输入与 scene 元素关联起来。
+
 当陀螺仪可以使用时此属性失效。
 
 ### clipRelativeInput
@@ -154,6 +155,7 @@ HTML属性: **data-clip-relative-input**
 默认值: *false*
 
 限制鼠标输入在 scene 元素的范围内。 这意味着当鼠标箭头接触到 scene 元素的边沿时图层的运动会立即停止。
+
 当陀螺仪可以使用时，或者 `hoverOnly` 属性激活时此属性失效。
 
 ### hoverOnly
