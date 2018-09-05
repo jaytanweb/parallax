@@ -50,7 +50,7 @@ Parallax 引擎能对只能设备的方向作出反应。 如果设备没有陀�
 
 `npm i -s parallax-js`
 
-You will then find the source code in `node_modules/parallax-js/src/parallax.js` and the browserified, babelified, uglified, production-ready version in `node_modules/parallax-js/dist/parallax.min.js`
+然后你会在 `node_modules/parallax-js/src/parallax.js`看到源码，而 browserified, babelified, uglified, production-ready 的版本则在 `node_modules/parallax-js/dist/parallax.min.js`
 
 ## 1.2 准备工作
 
