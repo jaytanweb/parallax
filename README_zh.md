@@ -72,7 +72,7 @@ Parallax 引擎能对只能设备的方向作出反应。 如果设备没有陀�
 </div>
 ```
 
-Per default, all direct child elements of the scene will become moving objects, the layers. You can change this to a custom query selector, but again, we're going with the easiest approach for now:
+默认情况下，scene元素的所有直接子元素都会变成移动对象， the layers. 你可以将这个改做一个定制的查询选择器，不过现在我们还是先用这个最容易的方式开始：
 
 ```html
 <div id="scene">
@@ -81,7 +81,7 @@ Per default, all direct child elements of the scene will become moving objects, 
 </div>
 ```
 
-While all other options and parameters are optional, with sane defaults, and can be set programatically, each layer needs a `data-depth` attribute. The movement applied to each layer will be multiplied by its depth attribute.
+所有其他的选项和参数都是可选的，因为它们有默认值，并且可以通过编程式设置，但是`data-depth` 属性是每个图层都需要设置的。 应用到每个图层的动作都会乘上这个 depth 属性。
 
 ```html
 <div id="scene">
@@ -90,25 +90,25 @@ While all other options and parameters are optional, with sane defaults, and can
 </div>
 ```
 
-## 1.3 Run Parallax
+## 1.3 使用 Parallax
 
-As soon as your DOM is ready and loaded, you can create a new Parallax.js instance, providing your scene element as first parameter.
+当你的 DOM 已经设置好，你可以创建一个 new Parallax.js 实例， 使用你的 scene 元素作为它的首个参数。
 
 ```javascript
 var scene = document.getElementById('scene');
 var parallaxInstance = new Parallax(scene);
 ```
 
-That's it, you're running Parallax.js now!
+就是这样，你现在已经开始使用 Parallax.js 了！
 
-# 2. Configuration
+# 2. 配置
 
-## 2.1 Programmatic vs Declarative
+## 2.1 编程式 vs 声明式
 
-Most configuration settings can be declared either as data-value attribute of the scene element, or property of the configuration object. The programmatic approach will take priority over the data-value attributes set in the HTML.  
-Some options can also be set at run-time via instance methods.
+大部分的配置选项能通过 scene 元素的 data-value 属性, 或者配置类的属性来设置。 编程式的设置的优先级要高于 HTML 的 data-value 属性。 
+有些选项还可以在运行的时候通过实例方法来设置。.
 
-Declarative:
+声明式：
 
 ```html
 <div data-relative-input="true" id="scene">
@@ -117,7 +117,7 @@ Declarative:
 </div>
 ```
 
-Programmatic:
+编程式：
 
 ```javascript
 var scene = document.getElementById('scene');
@@ -126,13 +126,13 @@ var parallaxInstance = new Parallax(scene, {
 });
 ```
 
-Using Methods at Runtime:
+在运行时使用实例方法：
 
 ```javascript
 parallaxInstance.friction(0.2, 0.2);
 ```
 
-## 2.2 Configuration Options
+## 2.2 配置选项
 
 ### relativeInput
 
