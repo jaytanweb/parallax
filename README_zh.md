@@ -105,8 +105,8 @@ var parallaxInstance = new Parallax(scene);
 
 ## 2.1 编程式 vs 声明式
 
-大部分的配置选项能通过 scene 元素的 data-value 属性, 或者配置类的属性来设置。 编程式的设置的优先级要高于 HTML 的 data-value 属性。 
-有些选项还可以在运行的时候通过实例方法来设置。.
+大部分的配置选项能通过 scene 元素的 data-value 属性, 或者编程式声明时传入的参数对象的属性来设置。 编程式的设置的优先级要高于 HTML 的 data-value 属性。 
+有些选项还可以在运行的时候通过实例方法来设置。
 
 声明式：
 
@@ -136,45 +136,45 @@ parallaxInstance.friction(0.2, 0.2);
 
 ### relativeInput
 
-Property: **relativeInput**  
-Attribute: **data-relative-input**
+选项: **relativeInput**  
+HTML属性: **data-relative-input**
 
-Value: *boolean*  
-Default: *false*
+类型: *boolean*  
+默认值: *false*
 
-Makes mouse input relative to the position of the scene element.  
-No effect when gyroscope is used.
+将鼠标的输入与 scene 元素关联起来。
+当陀螺仪可以使用时此属性失效。
 
 ### clipRelativeInput
 
-Property: **clipRelativeInput**  
-Attribute: **data-clip-relative-input**
+选项: **clipRelativeInput**  
+HTML属性: **data-clip-relative-input**
 
-Value: *boolean*  
-Default: *false*
+类型: *boolean*  
+默认值: *false*
 
-Clips mouse input to the bounds of the scene. This means the movement stops as soon as the edge of the scene element is reached by the cursor.  
-No effect when gyroscope is used, or `hoverOnly` is active.
+限制鼠标输入在 scene 元素的范围内。 这意味着当鼠标箭头接触到 scene 元素的边沿时图层的运动会立即停止。
+当陀螺仪可以使用时，或者 `hoverOnly` 属性激活时此属性失效。
 
 ### hoverOnly
 
-Property: **hoverOnly**  
-Attribute: **data-hover-only**
+选项: **hoverOnly**  
+HTML属性: **data-hover-only**
 
-Value: *boolean*  
-Default: *false*
+类型: *boolean*  
+默认值: *false*
 
 Parallax will only be in effect while the cursor is over the scene element, otherwise all layers move back to their initial position. Works best in combination with `relativeInput`.  
 No effect when gyroscope is used.
 
 ### inputElement
 
-Property: **inputElement**  
-Attribute: **data-input-element**  
+选项: **inputElement**  
+HTML属性: **data-input-element**  
 Method: **setInputElement(HTMLElement)**
 
-Value: *null* or *HTMLElement* / *String*  
-Default: *null*
+类型: *null* or *HTMLElement* / *String*  
+默认值: *null*
 
 Allows usage of a different element for cursor input.  
 The configuration property expects an HTMLElement, the data value attribute a query selector string.  
@@ -183,111 +183,111 @@ No effect when gyroscope is used.
 
 ### calibrateX & calibrateY
 
-Property: **calibrateX** & **calibrateY**  
-Attribute: **data-calibrate-x** & **data-calibrate-y**  
+选项: **calibrateX** & **calibrateY**  
+HTML属性: **data-calibrate-x** & **data-calibrate-y**  
 Method: **calibrate(x, y)**
 
-Value: *boolean*  
-Default: *false* for X, *true* for Y
+类型: *boolean*  
+默认值: *false* for X, *true* for Y
 
 Caches the initial X/Y axis value on initialization and calculates motion relative to this.  
 No effect when cursor is used.
 
 ### invertX & invertY
 
-Property: **invertX** & **invertY**  
-Attribute: **data-invert-x** & **data-invert-y**  
+选项: **invertX** & **invertY**  
+HTML属性: **data-invert-x** & **data-invert-y**  
 Method: **invert(x, y)**
 
-Value: *boolean*  
-Default: *true*
+类型: *boolean*  
+默认值: *true*
 
 Inverts the movement of the layers relative to the input. Setting both of these values to *false* will cause the layers to move with the device motion or cursor.
 
 ### limitX & limitY
 
-Property: **limitX** & **limitY**  
-Attribute: **data-limit-x** & **data-limit-y**  
+选项: **limitX** & **limitY**  
+HTML属性: **data-limit-x** & **data-limit-y**  
 Method: **limit(x, y)**
 
-Value: *false* or *integer*  
-Default: *false*
+类型: *false* or *integer*  
+默认值: *false*
 
 Limits the movement of layers on the respective axis. Leaving this value at false gives complete freedom to the movement.
 
 ### scalarX & scalarY
 
-Property: **scalarX** & **scalarY**  
-Attribute: **data-scalar-x** & **data-scalar-y**  
+选项: **scalarX** & **scalarY**  
+HTML属性: **data-scalar-x** & **data-scalar-y**  
 Method: **scalar(x, y)**
 
-Value: *float*  
-Default: *10.0*
+类型: *float*  
+默认值: *10.0*
 
 Multiplies the input motion by this value, increasing or decreasing the movement speed and range.
 
 ### frictionX & frictionY
 
-Property: **frictionX** & **frictionY**  
-Attribute: **data-friction-x** & **data-friction-y**  
+选项: **frictionX** & **frictionY**  
+HTML属性: **data-friction-x** & **data-friction-y**  
 Method: **friction(x, y)**
 
-Value: *float* between *0* and *1*  
-Default: *0.1*
+类型: *float* between *0* and *1*  
+默认值: *0.1*
 
 Amount of friction applied to the layers. At *1* the layers will instantly go to their new positions, everything below 1 adds some easing.  
 The default value of *0.1* adds some sensible easing. Try *0.15* or *0.075* for some difference.
 
 ### originX & originY
 
-Property: **originX** & **originY**  
-Attribute: **data-origin-x** & **data-origin-y**  
+选项: **originX** & **originY**  
+HTML属性: **data-origin-x** & **data-origin-y**  
 Method: **origin(x, y)**
 
-Value: *float* between *0* and *1*  
-Default: *0.5*
+类型: *float* between *0* and *1*  
+默认值: *0.5*
 
 X and Y origin of the mouse input. The default of *0.5* refers to the center of the screen or element, *0* is the left (X axis) or top (Y axis) border, 1 the right or bottom.  
 No effect when gyroscope is used.
 
 ### precision
 
-Property: **precision**  
-Attribute: **data-precision**
+选项: **precision**  
+HTML属性: **data-precision**
 
-Value: *integer*  
-Default: *1*
+类型: *integer*  
+默认值: *1*
 
 Decimals the element positions will be rounded to. *1* is a sensible default which you should not need to change in the next few years, unless you have a very interesting and unique setup.
 
 ### selector
 
-Property: **selector**  
-Attribute: **data-selector**
+选项: **selector**  
+HTML属性: **data-selector**
 
-Value: *null* or *string*  
-Default: *null*
+类型: *null* or *string*  
+默认值: *null*
 
 String that will be fed to querySelectorAll on the scene element to select the layer elements. When *null*, will simply select all direct child elements.  
 Use `.layer` for legacy behaviour, selecting only child elements having the class name *layer*.
 
 ### pointerEvents
 
-Property: **pointerEvents**  
-Attribute: **data-pointer-events**
+选项: **pointerEvents**  
+HTML属性: **data-pointer-events**
 
-Value: *boolean*  
-Default: *false*
+类型: *boolean*  
+默认值: *false*
 
 Set to *true* to enable interactions with the scene and layer elements. When set to the default of *false*, the CSS attribute `pointer-events: none` will be applied for performance reasons.  
 Setting this to *true* alone will not be enough to fully interact with all layers, since they will be overlapping. You have to either set `position: absolute` on all layer child elements, or keep **pointerEvents** at *false* and set `pointer-events: all` for the interactable elements only.
 
 ### onReady
 
-Property: **onReady**
+选项: **onReady**
 
-Value: *null* or *function*  
-Default: *null*
+类型: *null* or *function*  
+默认值: *null*
 
 Callback function that will be called as soon as the Parallax instance has finished its setup. This might currently take up to 1000ms (`calibrationDelay * 2`).
 
