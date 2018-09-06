@@ -135,6 +135,7 @@ parallaxInstance.friction(0.2, 0.2);
 ## 2.2 配置选项
 
 ### relativeInput
+> 输入数据： 鼠标或智能设备的运动数据
 
 选项: **relativeInput**  
 HTML属性: **data-relative-input**
@@ -166,8 +167,9 @@ HTML属性: **data-hover-only**
 类型: *boolean*  
 默认值: *false*
 
-Parallax will only be in effect while the cursor is over the scene element, otherwise all layers move back to their initial position. Works best in combination with `relativeInput`.  
-No effect when gyroscope is used.
+Parallax 将只会在鼠标在 scene 元素之上时产生效果， 其他的情况下所有的图层会回到它们的初始位置。与 `relativeInput`属性搭配使用效果更佳。  
+
+当陀螺仪可以使用时此属性失效。
 
 ### inputElement
 
@@ -178,10 +180,11 @@ Method: **setInputElement(HTMLElement)**
 类型: *null* or *HTMLElement* / *String*  
 默认值: *null*
 
-Allows usage of a different element for cursor input.  
-The configuration property expects an HTMLElement, the data value attribute a query selector string.  
-Will only work in combination with `relativeInput`, setting `hoverOnly` might make sense too.  
-No effect when gyroscope is used.
+允许使用不同的元素作为鼠标输入。 
+这个配置参数需要一个HTML元素， 其属性值属于一个元素选择器字符串。  
+必需搭配 `relativeInput`属性来使用， 设置 `hoverOnly` 也可能生效。  
+
+当陀螺仪可以使用时此属性失效。
 
 ### calibrateX & calibrateY
 
@@ -192,8 +195,9 @@ Method: **calibrate(x, y)**
 类型: *boolean*  
 默认值: *false* for X, *true* for Y
 
-Caches the initial X/Y axis value on initialization and calculates motion relative to this.  
-No effect when cursor is used.
+在初始化的时候缓存初始的 X/Y 坐标值，并计算出相应的动作。 
+
+当使用鼠标时，此属性时效。
 
 ### invertX & invertY
 
@@ -204,7 +208,7 @@ Method: **invert(x, y)**
 类型: *boolean*  
 默认值: *true*
 
-Inverts the movement of the layers relative to the input. Setting both of these values to *false* will cause the layers to move with the device motion or cursor.
+将输入数据转化为关联图层的运动。 同时将两个属性设置为 *false* 会导致图层与设备的运动或鼠标同步运动。
 
 ### limitX & limitY
 
@@ -215,7 +219,7 @@ Method: **limit(x, y)**
 类型: *false* or *integer*  
 默认值: *false*
 
-Limits the movement of layers on the respective axis. Leaving this value at false gives complete freedom to the movement.
+限制各个图层在相应坐标系中的运动。将其设置为*false*会给运动带来完全的自由。
 
 ### scalarX & scalarY
 
@@ -226,7 +230,7 @@ Method: **scalar(x, y)**
 类型: *float*  
 默认值: *10.0*
 
-Multiplies the input motion by this value, increasing or decreasing the movement speed and range.
+将输入数据乘以这个值， 以此来增加或减少运动的速度和幅度。
 
 ### frictionX & frictionY
 
@@ -237,8 +241,8 @@ Method: **friction(x, y)**
 类型: *float* between *0* and *1*  
 默认值: *0.1*
 
-Amount of friction applied to the layers. At *1* the layers will instantly go to their new positions, everything below 1 adds some easing.  
-The default value of *0.1* adds some sensible easing. Try *0.15* or *0.075* for some difference.
+应用到图层上的摩擦总数。设置为 *1* 的时候图层会立即到达它们的新位置，所有低于 1 的值都会增加一些缓冲。
+默认值 *0.1* 增加了一些合理的缓冲。 尝试下 *0.15* or *0.075* 看看其他效果。
 
 ### originX & originY
 
@@ -249,8 +253,9 @@ Method: **origin(x, y)**
 类型: *float* between *0* and *1*  
 默认值: *0.5*
 
-X and Y origin of the mouse input. The default of *0.5* refers to the center of the screen or element, *0* is the left (X axis) or top (Y axis) border, 1 the right or bottom.  
-No effect when gyroscope is used.
+鼠标输入的 X 和 Y 原点。默认值 *0.5* 代表于屏幕或者元素的中心， *0* 代表左侧 (X 轴) or 上方 (Y 轴) 的边，1 代表右边或者底部。 
+
+当陀螺仪可以使用时此属性失效。
 
 ### precision
 
