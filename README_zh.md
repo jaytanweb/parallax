@@ -168,7 +168,6 @@ HTML属性: **data-hover-only**
 默认值: *false*
 
 Parallax 将只会在鼠标在 scene 元素之上时产生效果， 其他的情况下所有的图层会回到它们的初始位置。与 `relativeInput`属性搭配使用效果更佳。  
-
 当陀螺仪可以使用时此属性失效。
 
 ### inputElement
@@ -195,8 +194,7 @@ Method: **calibrate(x, y)**
 类型: *boolean*  
 默认值: *false* for X, *true* for Y
 
-在初始化的时候缓存初始的 X/Y 坐标值，并计算出相应的动作。 
-
+在初始化的时候缓存初始的 X/Y 坐标值，并计算出相应的动作。  
 当使用鼠标时，此属性时效。
 
 ### invertX & invertY
@@ -241,7 +239,7 @@ Method: **friction(x, y)**
 类型: *float* between *0* and *1*  
 默认值: *0.1*
 
-应用到图层上的摩擦总数。设置为 *1* 的时候图层会立即到达它们的新位置，所有低于 1 的值都会增加一些缓冲。
+应用到图层上的摩擦总数。设置为 *1* 的时候图层会立即到达它们的新位置，所有低于 1 的值都会增加一些缓冲。  
 默认值 *0.1* 增加了一些合理的缓冲。 尝试下 *0.15* or *0.075* 看看其他效果。
 
 ### originX & originY
@@ -250,11 +248,10 @@ Method: **friction(x, y)**
 HTML属性: **data-origin-x** & **data-origin-y**  
 Method: **origin(x, y)**
 
-类型: *float* between *0* and *1*  
+类型: *float* 取值在 *0* 到 *1* 之间  
 默认值: *0.5*
 
-鼠标输入的 X 和 Y 原点。默认值 *0.5* 代表于屏幕或者元素的中心， *0* 代表左侧 (X 轴) or 上方 (Y 轴) 的边，1 代表右边或者底部。 
-
+鼠标输入的 X 和 Y 原点。默认值 *0.5* 代表于屏幕或者元素的中心， *0* 代表左侧 (X 轴) or 上方 (Y 轴) 的边，1 代表右边或者底部。  
 当陀螺仪可以使用时此属性失效。
 
 ### precision
@@ -265,7 +262,7 @@ HTML属性: **data-precision**
 类型: *integer*  
 默认值: *1*
 
-Decimals the element positions will be rounded to. *1* is a sensible default which you should not need to change in the next few years, unless you have a very interesting and unique setup.
+元素位置四舍五入位数。 *1* 是一个合理的默认值， 你在接下来的几年都应该不需要去改变它， 除非你有一个非常有趣并且独特的设置。
 
 ### selector
 
@@ -275,8 +272,8 @@ HTML属性: **data-selector**
 类型: *null* or *string*  
 默认值: *null*
 
-String that will be fed to querySelectorAll on the scene element to select the layer elements. When *null*, will simply select all direct child elements.  
-Use `.layer` for legacy behaviour, selecting only child elements having the class name *layer*.
+这个字符串将会传给 querySelectorAll 作为选择 scene 元素子图层元素的依据。 当它是 *null*，的时候将会简单的选择所有的直系子元素。  
+使用 `.layer` 作为例子，将会选择子元素里面 class 名字含有 *layer* 的元素。
 
 ### pointerEvents
 
@@ -286,8 +283,8 @@ HTML属性: **data-pointer-events**
 类型: *boolean*  
 默认值: *false*
 
-Set to *true* to enable interactions with the scene and layer elements. When set to the default of *false*, the CSS attribute `pointer-events: none` will be applied for performance reasons.  
-Setting this to *true* alone will not be enough to fully interact with all layers, since they will be overlapping. You have to either set `position: absolute` on all layer child elements, or keep **pointerEvents** at *false* and set `pointer-events: all` for the interactable elements only.
+设置为 *true* 以激活与 scene 和 layer 元素的相互作用。 当设置为 *false* 的时候， CSS 属性 `pointer-events: none` 将会产生作用。  
+单单设置这个值为 *true* 不足以影响到所有的 layers， 因为它们会互相覆盖。要么为所有的 layer 子元素设置 `position: absolute`，要么保持 **pointerEvents**  为  *false* 并且为相关的交互元素单独设置`pointer-events: all` 。
 
 ### onReady
 
@@ -296,42 +293,42 @@ Setting this to *true* alone will not be enough to fully interact with all layer
 类型: *null* or *function*  
 默认值: *null*
 
-Callback function that will be called as soon as the Parallax instance has finished its setup. This might currently take up to 1000ms (`calibrationDelay * 2`).
+当 Parallax 实例完成了初始化设置，这个回调函数会立刻执行。 这一般会占用 1000ms (`calibrationDelay * 2`).
 
-# 3. Methods
+# 3. 方法函数
 
-In addition to the configuration methods outlined in the section above, there are a few more publicly accessible methods:
+除了上一章的描述的设置方法，这里还有一些公开的更容易使用的函数：
 
 ### enable()
 
-Enables a disabled Parallax instance.
+启动一个暂停的 Parallax 实例。
 
 ### disable()
 
-Disables a running Parallax instance.
+暂停一个正在运行的 Parallax 实例。
 
 ### destroy()
 
-Completely destroys a Parallax instance, allowing it to be garbage collected.
+完全摧毁一个 Parallax 实例，让它被垃圾回收机制回收。
 
 ### version()
 
-Returns the version number of the Parallax library.
+返回 Parallax 库的版本编号。
 
-# 4. Development
+# 4. 参与开发
 
-## 4.1 Running the Project
+## 4.1 克隆项目
 
-1. Clone the Repository `git clone git@github.com:wagerfield/parallax.git`
-2. Open the working directory `cd parallax`
-3. Install dependencies `npm install`
-4. Run development server `gulp watch`
-5. Open [http://localhost:9000/](http://localhost:9000/) in browser
+1. 克隆仓库 `git clone git@github.com:wagerfield/parallax.git`
+2. 打开工作目录 `cd parallax`
+3. 安装依赖 `npm install`
+4. 开启开发服务器 `gulp watch`
+5. 在浏览器打开 [http://localhost:9000/](http://localhost:9000/) 
 
 ## 4.2 Opening an Issue
 
-If you need help relating the direct usage of this library in a project of yours, provide us with a working, running example of your work. This can be a GitHub repository, a ZIP file containing your work, a project on CodePen or JSFiddle, you name it.  
-*Do not complain about something not working without giving us some way to help you.* Thank you!
+如果你使用了这个库的项目需要用法上的指导，给我们提供一个可运行的项目demo。可以是一个 GitHub 项目仓库，一个压缩着你的项目的 ZIP 文件 ， 一个放在 CodePen 或者 JSFiddle 上的项目， you name it.  
+*不要抱怨有一些东西没正确运行，又不给我们帮主你的途径。* 感谢！
 
 ## 4.3 Known Issues
 
@@ -341,31 +338,31 @@ It seems MS Edge does not support the `children` or `querySelectorAll` methods f
 
 # 5. FAQ
 
-### How can I use this Library with jQuery?
+### 我怎么配合jQuery来使用这个库呢？
 
-jQuery will not prevent you from using this library in any way. If you want to use jQuery for selecting your Parallax scene element, you can do so too.
+jQuery 不会使用任何方式阻止你使用这个库。 如果你想用 jQuery 去选择你的 Parallax scene 元素，你也可以那样做。
 
 ```javascript
 var scene = $('#scene').get(0);
 var parallaxInstance = new Parallax(scene);
 ```
 
-### How can I interact with my layers?
+### 我怎样与我的 layers 互动？
 
-Check out the section on the configuration option `pointerEvents` above.
+查看上面的设置选项 `pointerEvents` 。
 
-### How do I get the demo files to work?
+### 我怎样才能使 demo 文件正常运行？
 
-Either download compiled_with_examples.zip from the [GitHub Releases](https://github.com/wagerfield/parallax/releases) section, or follow section 4.1
+要么就从 [GitHub Releases](https://github.com/wagerfield/parallax/releases) 章节下载 compiled_with_examples.zip，要么按照章节 section 4.1的做法。
 
 
-# 6. Information
+# 6. 资料
 
 ## 6.1 License
 
-This project is licensed under the terms of the  [MIT](http://www.opensource.org/licenses/mit-license.php) License. Enjoy!
+本项目使用的协议是 [MIT](http://www.opensource.org/licenses/mit-license.php) License. Enjoy!
 
-## 6.2 Authors
+## 6.2 贡献者
 
 Matthew Wagerfield: [@wagerfield](http://twitter.com/wagerfield)  
 René Roth: [Website](http://reneroth.org/)
